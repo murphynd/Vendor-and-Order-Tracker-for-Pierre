@@ -13,7 +13,6 @@ namespace Pierre.Tests
     {
       Order.ClearAll();
     }
-
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
@@ -23,7 +22,7 @@ namespace Pierre.Tests
     [TestMethod]
     public void GetTitle_ReturnsTitile_String()
     { //arange
-      string title = "The Earth is Not a Cold Dead Place";
+      string title = "New Order";
       Order newOrder = new Order(title);
       //Act
       string result = newOrder.Title;
@@ -34,14 +33,12 @@ namespace Pierre.Tests
     public void SetTitle_SetTitle_String()
     {
       //Arrange
-      string title = "The Earth is Not a Cold Dead Place.";
+      string title = "New Order";
       Order newOrder = new Order(title);
-
       //Act
-      string updatedTitle = "Do the dishes";
+      string updatedTitle = "Order 3";
       newOrder.Title = updatedTitle;
       string result = newOrder.Title;
-
       //Assert
       Assert.AreEqual(updatedTitle, result);
     }
@@ -50,14 +47,8 @@ namespace Pierre.Tests
     {
       // Arrange
       List<Order> newList = new List<Order> { };
-
       // Act
       List<Order> result = Order.GetAll();
-      // foreach (Order thisOrder in result)
-      // {
-      //   Console.WriteLine("Output from empty list GetAll test: " + thisItem.Description);  
-      // }
-
       // Assert
       CollectionAssert.AreEqual(newList, result);
     }
@@ -65,10 +56,12 @@ namespace Pierre.Tests
     [TestMethod]
     public void GetId_OrderInstantiateWithAnIdAndGetterReturns_Int()
     {
-      string title = "The Earth is Not a Cold Dead Place";
+      //Arrange
+      string title = "Order 1";
       Order newOrder = new Order(title);
-
+      //Act
       int result = newOrder.Id;
+      //Assert
       Assert.AreEqual(1, result);
     }
 
@@ -76,14 +69,12 @@ namespace Pierre.Tests
     public void Find_ReturnsCorrectOrder_Order()
     {
       //Arrange
-      string title01 = "The Earth is Not a Cold Dead Place";
-      string title02 = "Wash the dishes";
+      string title01 = "Order 1";
+      string title02 = "Order 2";
       Order newOrder1 = new Order(title01);
       Order newOrder2 = new Order(title02);
-
       //Act
       Order result = Order.Find(2);
-
       //Assert
       Assert.AreEqual(newOrder2, result);
     }

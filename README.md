@@ -26,7 +26,13 @@ Pierre should be provided with a link to a page presenting him with a form to cr
 Make a program for users to catalog and organize their music. This could be a CD, vinyl or even a tape collection.
 
 Vendor - (category)
+- Name
+- description
 Order - (item)
+- title
+- description
+- price
+- date
 A Order should be an object.
 would hold a Title,
 hold a Vendor name
