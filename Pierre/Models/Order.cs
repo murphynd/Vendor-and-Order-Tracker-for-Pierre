@@ -27,6 +27,5 @@ namespace Pierre.Models
     {
       return _instances[searchId - 1];
     }
-
   }
 }

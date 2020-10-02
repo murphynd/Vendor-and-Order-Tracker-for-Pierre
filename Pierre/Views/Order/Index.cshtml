@@ -1,4 +1,4 @@
-@using MusicOrganizer.Models;
+@using Pierre.Models;
 @{
   Layout = "_Layout";
 }
@@ -10,7 +10,7 @@
   <h3>No orders have been added yet!</h3>
 } 
 
-@foreach (order order in Model)
+@foreach (Order order in Model)
 {
   <h3><a href='/orders/@order.Id'>@order.Title</a></h3>
 }
