@@ -34,5 +34,16 @@ namespace Pierre.Models
     {
       Orders.Add(order);
     }
+    public static Vendor SearchVendor(string vendorSearch)
+    {
+      foreach (Vendor vendor in _instances)
+      {
+        if (vendor.Name == vendorSearch)
+        {
+          return vendor;
+        }
+      }
+      return null;
+    }
   }
 }

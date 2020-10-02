@@ -2,20 +2,21 @@
 @{
   Layout = "_Layout";
 }
-<h1>Hello pierre  </h1>
+
   <h1>Pierres Bakery </h1>
   <h4>Welcome back Pierre!</h4>
-</div>
-<h1 class="jumbotron">vendors</h1>
+
+<h1 class="jumbotron">VENDORS</h1>
 
 @if (@Model.Count == 0)
 {
   <h3>No vendors have been added yet!</h3>
 } 
-
+<ul>
 @foreach (Vendor vendor in Model)
 {
-  <h3><a href='/vendors/@vendor.Id'class="btn btn-primary">@vendor.Name</a></h3>
+  <li><a href='/vendors/@vendor.Id'class="btn btn-primary">@vendor.Name</a></li>
 }
-<h3><a href='/vendors/new'class="btn btn-primary">Add a new vendor</a></h3>
-<p><a href='/'class="btn btn-primary">Back home</a></p>
+</ul>
+<a href='/vendors/new'class="btn btn-primary">Add a new vendor</a>
+

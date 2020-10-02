@@ -46,6 +46,18 @@ namespace Pierre.Controllers
       model.Add("vendor", foundVendor);
       return View("Show", model);
     }
+    [HttpGet("/vendors/search")]
+    public ActionResult Search()
+    {
+
+      return View();
+    }
+    [HttpPost("/vendors/search")]
+    public ActionResult SearchVendor(string vendor)
+    {
+      Vendor search = Vendor.SearchVendor(vendor);
+      return View("Show", search);
+    }
   }
 }
 
