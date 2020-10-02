@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+<h1>Add a new order</h1>
+
+<form action="/orders" method="post">
+  <label for="title">Title of order</label>
+  <input id="title" name="title" type="text">
+  <button type='submit'>Add Order</button>
+</form>
+
+<a href='/orders'>View all orders</a>
