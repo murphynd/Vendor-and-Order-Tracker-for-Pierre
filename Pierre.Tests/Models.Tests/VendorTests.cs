@@ -16,7 +16,9 @@ namespace Pierre.Models
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("test Vendor");
+      string name = "Test Vendor";
+      string description = "test Description";
+      Vendor newVendor = new Vendor(name, description);
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
     [TestMethod]
@@ -24,7 +26,8 @@ namespace Pierre.Models
     {
       //Arrange
       string name = "Test Vendor";
-      Vendor newVendor = new Vendor(name);
+      string description = "test Description";
+      Vendor newVendor = new Vendor(name, description);
       //Act
       string result = newVendor.Name;
       //Assert
@@ -35,7 +38,8 @@ namespace Pierre.Models
     {
       //Arrange
       string name = "Test Vendor";
-      Vendor newVendor = new Vendor(name);
+      string description = "test Description";
+      Vendor newVendor = new Vendor(name, description);
       //Act
       int result = newVendor.Id;
       //Assert
@@ -46,14 +50,31 @@ namespace Pierre.Models
     {
       //Arrange
       string name01 = "Bob";
+      string description01 = "test Description";
       string name02 = "Susie";
-      Vendor newVendor1 = new Vendor(name01);
-      Vendor newVendor2 = new Vendor(name02);
+      string description02 = "test Description";
+      Vendor newVendor1 = new Vendor(name01, description01);
+      Vendor newVendor2 = new Vendor(name02, description02);
       List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
       //Act
       List<Vendor> result = Vendor.GetAll();
       //Assert
       CollectionAssert.AreEqual(newList, result);
+    }
+    public void Search_ReturnsSearchedVendorObjects_SearchVendor()
+    {
+      //Arrange
+      string name01 = "Bob";
+      string description01 = "test Description";
+      string name02 = "Susie";
+      string description02 = "test Description";
+      Vendor newVendor1 = new Vendor(name01, description01);
+      Vendor newVendor2 = new Vendor(name02, description02);
+      List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
+      //Act
+      Vendor result = Vendor.SearchVendor("Bob");
+      //Assert
+      CollectionAssert.AreEqual(1, result);
     }
   }
 }

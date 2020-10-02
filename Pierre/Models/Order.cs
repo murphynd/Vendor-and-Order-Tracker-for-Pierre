@@ -13,11 +13,11 @@ namespace Pierre.Models
     public int Id { get; }
     private static List<Order> _instances = new List<Order> { };
 
-    public Order(string orderTitle, string orderDescription, string orderPrice)
+    public Order(string orderTitle, string orderDescription)
     {
       Title = orderTitle;
       Description = orderDescription;
-      Price = orderPrice;
+      int Price = 0;
       _instances.Add(this);
       Id = _instances.Count;
       DateTime now = DateTime.Now;

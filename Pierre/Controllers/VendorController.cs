@@ -35,11 +35,11 @@ namespace Pierre.Controllers
       return View(model);
     }
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string orderTitle, string orderDescription, string orderPrice)
+    public ActionResult Create(int vendorId, string orderTitle, string orderDescription)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
-      Order newOrder = new Order(orderTitle, orderDescription, orderPrice);
+      Order newOrder = new Order(orderTitle, orderDescription);
       foundVendor.AddOrder(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
@@ -52,12 +52,15 @@ namespace Pierre.Controllers
 
       return View();
     }
-    [HttpPost("/vendors/search")]
-    public ActionResult SearchVendor(string vendor)
-    {
-      Vendor search = Vendor.SearchVendor(vendor);
-      return View("Show", search);
-    }
+    // [HttpPost("/vendors/search")]
+    // public ActionResult SearchVendor(string vendor)
+    // {
+    //   Dictionary<string, object> model = new Dictionary<string, object>();
+    //   int vendorId = Vendor.SearchVendor(vendor);
+    //   Vendor foundVendor = Vendor.Find(vendorId);
+    //   List<Order> vendorOrders = foundVendor.Orders;
+    //   return View("Show", model);
+    // }
   }
 }
 
