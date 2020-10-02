@@ -19,9 +19,9 @@ namespace Pierre.Controllers
       return View();
     }
     [HttpPost("/vendors")]
-    public ActionResult Create(string Name)
+    public ActionResult Create(string vendorName, string vendorDescription)
     {
-      Vendor newVendor = new Vendor(Name);
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
       return RedirectToAction("Index");
     }
     [HttpGet("/vendors/{id}")]
@@ -35,11 +35,11 @@ namespace Pierre.Controllers
       return View(model);
     }
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string orderTitle)
+    public ActionResult Create(int vendorId, string orderTitle, string orderDescription, int orderPrice, string orderDate)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
-      Order newOrder = new Order(orderTitle);
+      Order newOrder = new Order(orderTitle, orderDescription, orderPrice, orderDate);
       foundVendor.AddOrder(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
