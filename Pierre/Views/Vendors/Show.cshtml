@@ -3,15 +3,17 @@
   Layout = "_Layout";
 }
 
-<h3>Here are all the Orders for this Vendor:</h3>
+<h3>Here are all the Orders for @Model["vendor"].Name:</h3>
 
 <ol>
 @foreach (Order order in @Model["orders"])
 {
+  <li>@order.Date</li>
+  <ul>
   <li>@order.Title</li>
   <li>@order.Description</li>
-  <li>@order.Date</li>
   <li>@order.Price</li>
+  </ul>
 
 }
 </ol>
