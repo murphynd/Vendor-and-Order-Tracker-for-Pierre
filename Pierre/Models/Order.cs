@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Globalization;
+using System;
 
 namespace Pierre.Models
 {
@@ -6,20 +8,20 @@ namespace Pierre.Models
   {
     public string Title { get; set; }
     public string Description { get; set; }
-    public string Date { get; set; }
+    public DateTime Date { get; set; }
     public string Price { get; set; }
     public int Id { get; }
     private static List<Order> _instances = new List<Order> { };
 
-    public Order(string orderTitle, string orderDescription, int orderPrice, string orderDate)
+    public Order(string orderTitle, string orderDescription, string orderPrice)
     {
       Title = orderTitle;
       Description = orderDescription;
-      Date = date;
-      Price = price;
-
+      Price = orderPrice;
       _instances.Add(this);
       Id = _instances.Count;
+      DateTime now = DateTime.Now;
+      Date = now;
     }
     public static void ClearAll()
     {
