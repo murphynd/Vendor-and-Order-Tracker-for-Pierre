@@ -70,11 +70,10 @@ namespace Pierre.Models
       string description02 = "test Description";
       Vendor newVendor1 = new Vendor(name01, description01);
       Vendor newVendor2 = new Vendor(name02, description02);
-      List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
       //Act
       Vendor result = Vendor.SearchVendor("Bob");
       //Assert
-      CollectionAssert.AreEqual(1, result);
+      Assert.AreEqual(newVendor1, result);
     }
   }
 }
