@@ -5,19 +5,22 @@
 
 <h3>Here are all the Orders for @Model["vendor"].Name:</h3>
 
-<ol>
+
 @foreach (Order order in @Model["orders"])
 {
-  <li>@order.Date</li>
-  <ul>
-  <li>@order.Title</li>
-  <li>@order.Description</li>
-  <li>@order.Price</li>
-  </ul>
-
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    <h5 class="card-title">@order.Title</h5>
+    </div>
+    <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">@order.Date</h6>
+    <p class="card-text">@order.Description</p>
+    <p class="card-text">total is $@order.Price</p>
+  </div>
+</div>
 }
-</ol>
 
-<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order by this vendor</a></p>
-<p><a href='/vendors'>Return to vendor list</a></p>
-<p><a href='/'>Return to Main Page</a></p>
+
+<p><a href='/vendors/@Model["vendor"].Id/orders/new'class="btn btn-primary">Add a new order by this vendor</a></p>
+<p><a href='/vendors'class="btn btn-primary">Return to vendor list</a></p>
+<p><a href='/'class="btn btn-primary">Return to Main Page</a></p>
